@@ -95,6 +95,7 @@
         (cons "i" (lambda () (enter-mode 'insert)))
         (cons "a" (lambda () (enter-mode 'insert) (forward-char)))
         (cons "A" (lambda () (enter-mode 'insert) (end-of-line)))
+        (cons "I" (lambda () (enter-mode 'insert) (first-non-whitespace)))
         (cons "0" beginning-of-line)
         (cons "$" end-of-line)
         (cons "^" first-non-whitespace)
