@@ -62,19 +62,24 @@
       (f (cdr a) (cdr b)
          (append nl `(,(cons (car a) (car b))))))))
 
+(define (cell-string str fg bg)
+  (map (cut create-cell <> fg bg) (string->list str)))
+
+; argument: ("astring" fg bg)
+(define (color-strings col-s)
+  (apply cell-string col-s))
+
 (define (apply-color mlist collist)
   (apply append
          (map
-           (lambda (_)
-             (map (cut create-cell <> (second _) (third _))
-                  (string->list (car _))))
+           color-strings
            (splice mlist collist))))
 
 (define (term-create-cells string fg bg)
   (let ((s (string-match "([^;]*)(.*)" string)))
     (if s
       (apply-color (cdr s) `((,fg ,bg) (,term-c-gray ,bg)))
-      (map (cut create-cell <> fg bg) (string->list string)))))
+      (cell-string string fg bg))))
 
 (define (term-display x y text #!optional
                       (fg term-c-black) (bg term-c-default) (attr #f))
