@@ -124,4 +124,4 @@ language, you can change virtually everything in your plugins.
 
 ### license
 
-MIT
+See `LICENSE` file.
