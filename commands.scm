@@ -205,7 +205,10 @@
 (define (insert-line-down)
   (next-line)
   (update-current-buffer-prop 'lines (lambda (buffer)
-    (insert-line% (buffer-lines buffer) (cdr (buffer-pointer buffer)))))
+    (let ([p (cdr (buffer-pointer buffer))])
+      (if (= p (length (buffer-lines buffer)))
+        (append (buffer-lines buffer) '("")) ; just append a new line if we're at the end of the file
+        (insert-line% (buffer-lines buffer) p)))))
   (end-of-line))
 
 (define (newline-at-pointer)
