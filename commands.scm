@@ -140,7 +140,7 @@
     (call-with-values
       (lambda () (split-elt lines line))
       (lambda (head rest)
-        (let* ([current-line (or (car (reverse head)) "")]
+        (let* ([current-line (or (car (reverse (if (eq? head '()) '("") head))) "")]
                [whitespace-length (whitespace-at-bol-length% current-line)]
                [new-line (make-string whitespace-length #\space)])
           (append head (list new-line) rest))))
