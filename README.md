@@ -31,7 +31,7 @@ language, you can change virtually everything in your plugins.
   - <kbd>a</kbd> Enters insert-mode moving right before
   - <kbd>A</kbd> Enters insert-mode moving to the end of the line
   - <kbd>0</kbd> Moves cursor to the beginning of the line (`beginning-of-line`)
-  - <kbd>$</kbd> Moves cursor to the beginning of the line (`end-of-line`)
+  - <kbd>$</kbd> Moves cursor to the end of the line (`end-of-line`)
   - <kbd>^</kbd> Move to first non whitespace character of line (`first-non-whitespace`)
   - <kbd>w</kbd> Move to beginning of WORD forward (`next-beginning-of-word`)
   - <kbd>W</kbd> Move to beginning of WORD forward (`next-beginning-of-word`)
